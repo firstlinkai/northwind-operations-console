@@ -1,0 +1,13 @@
+Employee No,Email Address,Employee Name,Department,Period From,Period To,Gross Pay,Night Diff,OT Pay,SSS,PhilHealth,Pag-IBIG,W/Tax,Net Pay
+EMP-1001,grace.delacruz@northwinds.example,Grace Dela Cruz,HR,2026-07-01,2026-07-15,22185.00,2218.50,0.00,675.00,610.09,100.00,2207.88,20810.53
+EMP-1002,jose.castillo@northwinds.example,Jose Castillo,HR,2026-07-01,2026-07-15,24795.00,0.00,1425.00,675.00,655.50,100.00,2562.10,22227.40
+EMP-1003,jasmine.lim@northwinds.example,Jasmine Lim,HR,2026-07-01,2026-07-15,23490.00,2349.00,0.00,675.00,645.98,100.00,2487.81,21930.21
+EMP-1004,quennie.gutierrez@northwinds.example,Quennie Gutierrez,HR,2026-07-01,2026-07-15,22185.00,0.00,0.00,675.00,554.63,100.00,1775.28,19080.09
+EMP-1005,ursula.gonzales@northwinds.example,Ursula Gonzales,HR,2026-07-01,2026-07-15,23490.00,0.00,1350.00,675.00,621.00,100.00,2293.00,21151.00
+EMP-1006,camille.ocampo@northwinds.example,Camille Ocampo,HR,2026-07-01,2026-07-15,23490.00,2349.00,0.00,675.00,645.98,100.00,2487.81,21930.21
+EMP-1007,noel.cabrera@northwinds.example,Noel Cabrera,Operations,2026-07-01,2026-07-15,31320.00,3132.00,0.00,675.00,861.30,100.00,4167.34,28648.36
+EMP-1008,teresa.garcia@northwinds.example,Teresa Garcia,Operations,2026-07-01,2026-07-15,33495.00,3349.50,1925.00,675.00,969.24,100.00,5193.84,31831.42
+EMP-1009,zaldy.alvarez@northwinds.example,Zaldy Alvarez,Operations,2026-07-01,2026-07-15,28710.00,0.00,0.00,675.00,717.75,100.00,3047.65,24169.60
+EMP-1010,gilbert.bacani@northwinds.example,Gilbert Bacani,Operations,2026-07-01,2026-07-15,33060.00,3306.00,0.00,675.00,909.15,100.00,4607.99,30073.86
+EMP-1011,grace.garcia@northwinds.example,Grace Garcia,Operations,2026-07-01,2026-07-15,29145.00,2914.50,1675.00,675.00,843.36,100.00,4027.43,28088.71
+EMP-1012,bea.rivera@northwinds.example,Bea Rivera,Operations,2026-07-01,2026-07-15,31755.00,0.00,0.00,675.00,793.88,100.00,3641.43,26544.69

@@ -1,0 +1,342 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================================
+   NORTHWINDS OPERATIONS DESIGN SYSTEM
+   ---------------------------------------------------------------------------
+   Concept: "Clinical Precision" — an operations console for a healthcare BPO.
+   Restrained, numeric, engineered. Density over decoration.
+
+   Two registers, one token set:
+     - CEO console  -> .dark  (command centre, deep ink)
+     - Client portal-> :root  (calm, trustworthy, paper-light)
+
+   Rules for contributors (see docs/DESIGN.md):
+     1. NEVER hardcode a hex/oklch colour in a component. Use tokens only.
+     2. All numeric/financial figures use .tabular (tabular-nums).
+     3. Status colour comes from the semantic ramp, never from chart-*.
+     4. Hairline borders + flat surfaces. No drop shadows heavier than shadow-sm.
+   ========================================================================= */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Semantic status ramp — the backbone of this product.
+     Used for: invoice status, SLA health, staff presence, variance deltas. */
+  --color-positive: var(--positive);
+  --color-positive-foreground: var(--positive-foreground);
+  --color-positive-muted: var(--positive-muted);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-muted: var(--warning-muted);
+  --color-critical: var(--critical);
+  --color-critical-foreground: var(--critical-foreground);
+  --color-critical-muted: var(--critical-muted);
+  --color-neutral: var(--neutral);
+  --color-neutral-foreground: var(--neutral-foreground);
+  --color-neutral-muted: var(--neutral-muted);
+
+  /* Surface elevation ladder (dense dashboards need more than card/background) */
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-raised: var(--surface-raised);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ---------------------------------------------------------------------------
+   LIGHT REGISTER — Client Portal
+   Paper-cool off-white. Calm, legible, trustworthy for external healthcare
+   clients who are checking SLAs and invoices, not running the business.
+   ------------------------------------------------------------------------ */
+:root {
+  --background: oklch(0.984 0.003 240);
+  --foreground: oklch(0.205 0.015 245);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.205 0.015 245);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.205 0.015 245);
+
+  --primary: oklch(0.545 0.109 197);
+  --primary-foreground: oklch(0.99 0.005 200);
+  --secondary: oklch(0.958 0.005 240);
+  --secondary-foreground: oklch(0.28 0.015 245);
+  --muted: oklch(0.958 0.005 240);
+  --muted-foreground: oklch(0.505 0.014 245);
+  --accent: oklch(0.945 0.018 197);
+  --accent-foreground: oklch(0.32 0.055 200);
+  --destructive: oklch(0.552 0.196 20);
+
+  --border: oklch(0.912 0.005 240);
+  --input: oklch(0.912 0.005 240);
+  --ring: oklch(0.545 0.109 197);
+
+  --surface-sunken: oklch(0.965 0.004 240);
+  --surface-raised: oklch(1 0 0);
+
+  --positive: oklch(0.545 0.132 162);
+  --positive-foreground: oklch(0.99 0.005 162);
+  --positive-muted: oklch(0.945 0.038 162);
+  --warning: oklch(0.605 0.129 62);
+  --warning-foreground: oklch(0.99 0.005 62);
+  --warning-muted: oklch(0.955 0.045 75);
+  --critical: oklch(0.552 0.196 20);
+  --critical-foreground: oklch(0.99 0.005 20);
+  --critical-muted: oklch(0.955 0.032 20);
+  --neutral: oklch(0.505 0.014 245);
+  --neutral-foreground: oklch(0.99 0 0);
+  --neutral-muted: oklch(0.945 0.005 245);
+
+  --chart-1: oklch(0.575 0.115 197);
+  --chart-2: oklch(0.555 0.145 285);
+  --chart-3: oklch(0.635 0.135 62);
+  --chart-4: oklch(0.575 0.125 162);
+  --chart-5: oklch(0.575 0.175 15);
+  --chart-6: oklch(0.605 0.095 240);
+
+  --radius: 0.5rem;
+
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.205 0.015 245);
+  --sidebar-primary: oklch(0.545 0.109 197);
+  --sidebar-primary-foreground: oklch(0.99 0.005 200);
+  --sidebar-accent: oklch(0.958 0.005 240);
+  --sidebar-accent-foreground: oklch(0.28 0.015 245);
+  --sidebar-border: oklch(0.912 0.005 240);
+  --sidebar-ring: oklch(0.545 0.109 197);
+}
+
+/* ---------------------------------------------------------------------------
+   DARK REGISTER — CEO / Internal Console
+   Deep ink with a cool clinical cast (hue 240) so it reads engineered rather
+   than "default dark grey". Signal teal carries every primary action.
+   ------------------------------------------------------------------------ */
+.dark {
+  --background: oklch(0.162 0.012 245);
+  --foreground: oklch(0.965 0.004 240);
+  --card: oklch(0.199 0.014 245);
+  --card-foreground: oklch(0.965 0.004 240);
+  --popover: oklch(0.228 0.016 245);
+  --popover-foreground: oklch(0.965 0.004 240);
+
+  --primary: oklch(0.735 0.124 196);
+  --primary-foreground: oklch(0.175 0.028 200);
+  --secondary: oklch(0.262 0.016 245);
+  --secondary-foreground: oklch(0.965 0.004 240);
+  --muted: oklch(0.262 0.016 245);
+  --muted-foreground: oklch(0.688 0.016 245);
+  --accent: oklch(0.292 0.032 200);
+  --accent-foreground: oklch(0.885 0.055 196);
+  --destructive: oklch(0.685 0.183 20);
+
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.735 0.124 196);
+
+  --surface-sunken: oklch(0.135 0.011 245);
+  --surface-raised: oklch(0.238 0.016 245);
+
+  --positive: oklch(0.722 0.145 162);
+  --positive-foreground: oklch(0.165 0.03 162);
+  --positive-muted: oklch(0.722 0.145 162 / 15%);
+  --warning: oklch(0.795 0.135 75);
+  --warning-foreground: oklch(0.185 0.035 75);
+  --warning-muted: oklch(0.795 0.135 75 / 15%);
+  --critical: oklch(0.685 0.183 20);
+  --critical-foreground: oklch(0.165 0.03 20);
+  --critical-muted: oklch(0.685 0.183 20 / 16%);
+  --neutral: oklch(0.628 0.018 245);
+  --neutral-foreground: oklch(0.155 0.012 245);
+  --neutral-muted: oklch(0.628 0.018 245 / 15%);
+
+  --chart-1: oklch(0.735 0.124 196);
+  --chart-2: oklch(0.672 0.145 285);
+  --chart-3: oklch(0.795 0.132 75);
+  --chart-4: oklch(0.722 0.142 162);
+  --chart-5: oklch(0.688 0.172 15);
+  --chart-6: oklch(0.652 0.085 240);
+
+  --sidebar: oklch(0.182 0.013 245);
+  --sidebar-foreground: oklch(0.965 0.004 240);
+  --sidebar-primary: oklch(0.735 0.124 196);
+  --sidebar-primary-foreground: oklch(0.175 0.028 200);
+  --sidebar-accent: oklch(0.262 0.016 245);
+  --sidebar-accent-foreground: oklch(0.965 0.004 240);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.735 0.124 196);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+  html {
+    @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Tables always get fixed-width numerals — every cell is potentially a
+     figure, and ragged digits make a column impossible to scan. */
+  table td,
+  table th {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+/* Financial dashboards live or die on digit alignment. Every figure that can
+   change between renders gets fixed-width numerals so nothing jitters.
+
+   Declared with `@utility` (not a plain class) so it is a first-class Tailwind
+   utility: usable in markup AND valid inside `@apply`, which the metric
+   classes below depend on. */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+@layer components {
+  /* --- Typographic scale -------------------------------------------------- */
+
+  /* Hero KPI figure — the four numbers the CEO looks at first. */
+  .metric-xl {
+    @apply text-[2.125rem] leading-[1.05] font-semibold tracking-[-0.02em] tabular;
+  }
+
+  /* Secondary metric inside panels and departmental tabs. */
+  .metric-lg {
+    @apply text-2xl leading-[1.1] font-semibold tracking-[-0.015em] tabular;
+  }
+
+  .metric-md {
+    @apply text-lg leading-tight font-semibold tracking-[-0.01em] tabular;
+  }
+
+  /* Small caps label above a metric. Used on every KPI card for consistency. */
+  .label-eyebrow {
+    @apply text-[0.6875rem] font-medium uppercase tracking-[0.09em] text-muted-foreground;
+  }
+
+  /* Section heading inside a dashboard panel. */
+  .panel-title {
+    @apply text-sm font-semibold tracking-[-0.005em];
+  }
+
+  /* Supporting caption / delta line beneath a metric. */
+  .caption {
+    @apply text-xs text-muted-foreground leading-snug;
+  }
+
+  /* --- Surfaces ----------------------------------------------------------- */
+
+  /* Inset well used for nested tables, empty states, simulator readouts. */
+  .surface-well {
+    @apply bg-surface-sunken border border-border/70 rounded-md;
+  }
+
+  /* Hairline divider matched to the dense grid rhythm. */
+  .rule {
+    @apply h-px w-full bg-border;
+  }
+
+  /* --- Status ------------------------------------------------------------- */
+
+  /* Base for the status pill. Pair with a -positive/-warning/-critical/-neutral
+     modifier. Prefer <StatusBadge> from components/dashboard/status-badge.tsx
+     over hand-rolling these. */
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2 py-0.5
+           text-[0.6875rem] font-medium leading-normal whitespace-nowrap;
+  }
+  .pill-positive {
+    @apply bg-positive-muted text-positive;
+  }
+  .pill-warning {
+    @apply bg-warning-muted text-warning;
+  }
+  .pill-critical {
+    @apply bg-critical-muted text-critical;
+  }
+  .pill-neutral {
+    @apply bg-neutral-muted text-neutral;
+  }
+
+  /* Presence dot for the staff heatmap. */
+  .presence-dot {
+    @apply size-2 rounded-full shrink-0;
+  }
+}
+
+@layer utilities {
+  /* Numeric deltas: positive is not always good (cost up = bad), so components
+     choose the token explicitly rather than inferring from the sign. */
+  .delta-up {
+    @apply text-positive;
+  }
+  .delta-down {
+    @apply text-critical;
+  }
+  .delta-flat {
+    @apply text-muted-foreground;
+  }
+}
+
+/* Motion: this is an operations tool used all day. Keep it quick and honour
+   reduced-motion — no decorative animation survives the media query. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
